@@ -16,7 +16,7 @@ have unexpected results!
 
 ### To Use
 
-Simply run:
+Simple 
 
 ```node
 node generate/scaffold.js <resources>
