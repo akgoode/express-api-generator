@@ -24,8 +24,8 @@ const exampleSchema = new mongoose.Schema({
   },
 });
 
-exampleSchema.virtual('length').get(function length() {
-  return this.name.length;
+exampleSchema.virtual('sample').get(function length() {
+  return this;
 });
 
 const Example = mongoose.model('Example', exampleSchema);
