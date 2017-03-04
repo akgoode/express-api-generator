@@ -5,6 +5,7 @@ const irregulars = require('./irregulars');
 
 const scaffold = function() {
   let name = process.argv[2];
+  let attributes = process.argv.slice(3);
   let rsName = '';
   if(Object.keys(irregulars).includes(name)) {
     rsName = irregulars[name];
@@ -19,7 +20,10 @@ const scaffold = function() {
 
   }
   copyfile('controller', rsName);
-  copyfile('model', rsName);
+  copyfile('model', rsName)
+  .then(() => {
+    copyfile('attributes', rsName, attributes);
+  });
 }();
 
 module.exports = scaffold;
