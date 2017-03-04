@@ -39,7 +39,3 @@ type String, and is required.  It will also have a generic virtual attribute
 defined that is just the length of the name attribute.  Use these as templates
 for adding your own attributes and virtuals and customizing it the way that
 best suits your needs.
-
-We are testing the remote
-
-One more test of the remote
