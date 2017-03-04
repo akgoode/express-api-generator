@@ -41,3 +41,5 @@ for adding your own attributes and virtuals and customizing it the way that
 best suits your needs.
 
 We are testing the remote
+
+One more test of the remote
