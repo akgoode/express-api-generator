@@ -40,7 +40,7 @@ module.exports = function (type, rsName) {
       .then((js) => promiseWriteFile('./app/models/' + rsName[typeNum] + '.js', js, 'w'))
       .catch(console.error);
   } else {
-    return promiseReadFile('./generate/templates/ex-' + type + '.js', { encoding: 'utf8' })
+    return promiseReadFile('./generate/templates/' + type + '.js', { encoding: 'utf8' })
     .then((data) => {
       return transform(data, rsName);
     })
