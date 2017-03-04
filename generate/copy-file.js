@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const transform = require('./transform');
+const attr = require('./attributes');
 
 module.exports = function (type, rsName) {
 
@@ -31,11 +32,19 @@ module.exports = function (type, rsName) {
     });
   };
 
-  promiseReadFile('./generate/templates/ex-' + type + '.js', { encoding: 'utf8' })
+  if (type === 'attributes'){
+    return promiseReadFile('./app/models/' + rsName[1] + '.js', { encoding: 'utf8' })
+      .then((data) => {
+        return attr(data, arguments[2]);
+      })
+      .then((js) => promiseWriteFile('./app/models/' + rsName[typeNum] + '.js', js, 'w'))
+      .catch(console.error);
+  } else {
+    return promiseReadFile('./generate/templates/ex-' + type + '.js', { encoding: 'utf8' })
     .then((data) => {
       return transform(data, rsName);
     })
-    .then((js) => promiseWriteFile('./app/' + type + 's/' + rsName[typeNum] + '.js', js, 'w'))
-    .catch(console.error)
-    ;
+    .then((js) =>promiseWriteFile('./app/' + type + 's/' + rsName[typeNum] + '.js', js, 'w'))
+    .catch(console.error);
+  }
 };
