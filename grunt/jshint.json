@@ -1,0 +1,11 @@
+{
+  "all": {
+    "src": [
+      "<%= paths.src.all %>",
+      "<%= paths.grunt.all %>"
+    ]
+  },
+  "options": {
+    "jshintrc": true
+  }
+}
