@@ -5,7 +5,8 @@
 ## Overview
 
 This builds off of the Express-API backend template that we use at GA for the
-purpose of interacting with a mongoDB.
+purpose of interacting with a mongoDB.  The goal is to mimic the rails scaffold
+command that creates a template of a controller and model.
 
 The /generate directory contains a scaffold script that allows a user to
 generate a controller and a model based off a resource named \<resources\> where
@@ -16,12 +17,18 @@ have unexpected results!
 
 ### To Use
 
-Simply run:
+#### Simple
 
 ```node
 node generate/scaffold.js <resources>
 ```
 from the root directory where \<resources\> meets the pattern described above.
+
+#### Attributes
+
+```node
+node generate/scaffold.js <resources> attr1:Type attr2:Type attr3:Type
+```
 
 ### Results
 
@@ -34,8 +41,7 @@ at the beginning of the file and will configure the before-action methods in
 much the same way rails does.  The controller will also have all 5 CRUD
 operations defined in a basic way that can easily be customized.
 
-At the moment, the model generated will only have one attribute, a name that is
-type String, and is required.  It will also have a generic virtual attribute
-defined that is just the length of the name attribute.  Use these as templates
-for adding your own attributes and virtuals and customizing it the way that
-best suits your needs.
+If the first command is run, the model will contain a sample attribute called
+"name" with a type String.  If the second command is run with custom attributes
+the model will replace the default attribute with all of the listed ones.  the
+model sets all attributes to be required by default.

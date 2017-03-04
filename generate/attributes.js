@@ -29,7 +29,6 @@ const attributes = function (data, attributes) {
     lines.slice(9, lines.length).join('\n')
   ].join('\n');
   return fileArr;
-  // [].concat.apply([], fileArr).join('');
 };
 
 module.exports = attributes;

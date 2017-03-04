@@ -22,7 +22,9 @@ const scaffold = function() {
   copyfile('controller', rsName);
   copyfile('model', rsName)
   .then(() => {
-    copyfile('attributes', rsName, attributes);
+    if(attributes[0] !== undefined) {
+      copyfile('attributes', rsName, attributes);
+    }
   });
 }();
 
