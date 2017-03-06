@@ -25,7 +25,7 @@ const exampleSchema = new mongoose.Schema({
 });
 
 exampleSchema.virtual('sample').get(function length() {
-  return this;
+  return 'sample';
 });
 
 const Example = mongoose.model('Example', exampleSchema);
